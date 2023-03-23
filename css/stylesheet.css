@@ -1,0 +1,112 @@
+html {
+    background-color: lightblue;
+}
+
+p {
+    margin-left: 75px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: auto;
+    border: 2px solid #ccc;
+    display: inline-block;
+}
+td {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 3px;
+    background-color: white;
+}
+th {
+    font-weight: bold;
+    border: 2px solid #dddddd;
+    text-align: center;
+    padding: 3px;
+    background-color: white;
+    width: fit-content;
+}
+body {
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.table-header {
+    width: 50px;
+    font-weight: bold;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 250px;
+}
+.buttonCreate{
+    background-color: #4caf50;
+}
+.buttonDelete{
+    background-color: #f44336;
+}
+.buttonPrint{
+    background-color: gray;
+}
+.buttonRight{
+    position: relative;
+    left:257px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: lightblue;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    cursor: pointer;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: white;
+    display: block;
+    padding: 9px 12px;
+    margin: 2px;
+    text-decoration: none;
+    background-color: #f44336;
+    border-radius: 12px;
+}
+.dropdown-content a:hover {
+    cursor: pointer;
+    background-color: #2196f3;
+}
+
+.print-hidden {
+    display: none !important;
+  }
+
+  ul {
+    background: #3399ff;
+    padding: 10px;
+    width: 250px;
+  }
+  ul li {
+    background: #cce5ff;
+    color: darkblue;
+    margin: 5px;
+  }
+  

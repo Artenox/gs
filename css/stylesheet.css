@@ -3,7 +3,11 @@ html {
 }
 
 p {
-    margin-left: 75px;
+    font-family: Arial;
+    margin-left: 100px;
+    text-decoration: underline;
+    font-size: 16px;
+    
 }
 
 table {
@@ -37,9 +41,9 @@ body {
     font-weight: bold;
 }
 .button {
-    border: none;
+    border: solid;
     color: white;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -49,6 +53,7 @@ body {
     cursor: pointer;
     border-radius: 12px;
     width: 250px;
+    border-color: lightslategray;
 }
 .buttonCreate{
     background-color: #4caf50;
@@ -59,9 +64,22 @@ body {
 .buttonPrint{
     background-color: gray;
 }
+.buttonSave{
+    background-color: #2196f3;
+    font-size: 14px;
+    width: 150px;
+    padding: 5px;
+}
 .buttonRight{
     position: relative;
     left:257px;
+}
+
+.icon{
+        float: right;
+width: 16px;
+height: 16px;
+cursor: pointer;
 }
 
 .dropdown {
@@ -108,5 +126,11 @@ body {
     background: #cce5ff;
     color: darkblue;
     margin: 5px;
+  }
+
+  .listButton {
+    position: absolute; /* Absolute Positionierung innerhalb des Elternelements */
+    top: -10px; /* Positioniert den Button 10 Pixel über dem Listenelement */
+    right: 5px; /* Positioniert den Button 5 Pixel von rechts */
   }
   

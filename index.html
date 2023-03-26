@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link href="css/stylesheet.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="js/script.js"></script>
-        <script
-        src="https://code.jquery.com/jquery-3.6.4.js"
-        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-        crossorigin="anonymous"></script>
+        <title>
+            Gruppensortierung
+        </title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link href="css/stylesheet.css" type="text/css" rel="stylesheet">
+        <script src="js/script.js"></script>
     </head>
     <body>
         <div>
@@ -15,14 +14,14 @@
             <div class="dropdown">
                 <button class="button buttonDelete print-hide">Löschen</button>
                 <div class="dropdown-content">
-                    <a class="dropdown-item" id="removeBtn2">Inhalt einer Tabelle entfernen<br /></a>
-                    <a class="dropdown-item" id="removeBtn">Inhalt aller Tabellen entfernen<br /></a>
-                    <a class="dropdown-item" id="deleteSpecific">Eine Tabelle entfernen<br /></a>
-                    <a class="dropdown-item" id="deleteTablesButton">Alle Tabellen entfernen</a>
+                    <a class="dropdown-item" id="deleteSpecificContent">Inhalt einer Tabelle entfernen<br></a>
+                    <a class="dropdown-item" id="deleteAllContent">Inhalt aller Tabellen entfernen<br></a>
+                    <a class="dropdown-item" id="deleteSpecificTable">Eine Tabelle entfernen<br></a>
+                    <a class="dropdown-item" id="deleteAllTables">Alle Tabellen entfernen</a>
                 </div>
             </div>
             <button class="button buttonPrint print-hide" onclick="printTableById()">Eine Tabelle drucken</button>
-            <br />
+            <br>
             <div>
                 <button class="button buttonCreate print-hide" onclick="uploadCSV_fcfs()">Lade .csv File - FCFS</button>             
                 <button class="button buttonPrint buttonRight print-hide" onclick="printAllTables()">Alle Tabellen drucken</button>
@@ -31,14 +30,15 @@
         <div>
             <button class="button buttonCreate print-hide" onclick="uploadCSV_random()">Lade .csv File - Random</button> 
         </div>
-        <div>
-            <button class="print-hide" onclick="clearLocalStorage()">Clear Local Storage</button>
-            <button class="print-hide" onclick="saveToLocalStorage()">Add to Local Storage</button>
-            <button class="print-hide" onclick="restoreFromLocalStorage()">Restore from local Storage</button>
-        </div>
-        <p class="print-hide">Snapshot-Liste</p>
+        <p class="print-hide">Speicher</p>
         <div id="local-storage-items-container" class="print-hide">
         </div>
-        <br />
+        <div>
+            <br>
+            <button class="print-hide button buttonSave" onclick="saveToLocalStorage()">Speichern</button>
+            <button class="print-hide button buttonSave" onclick="clearLocalStorage()">Speicher leeren</button>
+        </div>
+
+        <br>
     </body>
 </html>

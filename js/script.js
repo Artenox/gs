@@ -1,35 +1,64 @@
 function createTable() {
-    //Zufällige Farbe für den Tabellenhintergrund
+    // Zufällige Farbe für den Tabellenhintergrund
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-    //Name und Größe der Tabelle eingeben
-    let tableName = prompt("Bitte geben Sie den Namen der Tabelle ein:");
-    if (!tableName) {
-        return;
+    // Name und Größe der Tabelle eingeben
+    let tableName;
+    let tableSize;
+
+    while (true) {
+        tableName = prompt("Bitte geben Sie den Namen der Tabelle ein:");
+        if (tableName === null) {
+            // User clicked "cancel" or closed the prompt
+            return;
+        } else if (tableName.trim() === "") {
+            alert("Das Feld darf nicht leer sein. Es muss ein Name vergeben werden.");
+        } else if (document.getElementById(tableName)) {
+            alert("Eine Tabelle mit dem Namen " + tableName + " ist bereits vorhanden!");
+        } else {
+            break; // Valid entry, exit the loop
+        }
     }
-    let tableSize = prompt("Bitte geben Sie die maximale Größe der Tabelle ein:");
-    if (tableSize == null) {
-        return;
+
+
+
+    while (true) {
+        tableSize = prompt("Bitte geben Sie die maximale Größe der Tabelle ein:");
+        if (tableSize === null) {
+            // User clicked "cancel" or closed the prompt
+            return;
+        } else if (tableSize.trim() === "") {
+            alert("Das Feld darf nicht leer sein. Es muss eine Größe vergeben werden.");
+        } else if (isNaN(tableSize) || tableSize <= 0) {
+            alert("Bitte nur ganze Zahlen größer als Null eingeben!");
+        } else {
+            break; // Valid entry, exit the loop
+        }
     }
-    if (isNaN(tableSize) || tableSize <= 0) {
-        alert("Bitte nur ganze Zahlen größer als Null eingeben!");
-        return;
-    }
+
     tableSize = parseInt(tableSize, 10);
-    if (document.getElementById(tableName)) {
-        alert("Eine Tabelle mit dem Namen " + tableName + " ist bereits vorhanden!");
-        return;
-    }
-    //Erstellen der Header-Zeilen der Tabelle
+
+
+    // Erstellen der Header-Zeilen der Tabelle
     var table = createTableHeader(randomColor, tableName, tableSize);
-    //Reihen entsprechend der Tabellengröße erstellen
+    // Reihen entsprechend der Tabellengröße erstellen
     createRows(table, tableSize);
 }
 
 
+
+
 function uploadCSV_fcfs() {
+
+    var check = document.getElementsByTagName("table");
+    if (check.length == 0) {
+        alert("Es sind keine Tabellen vorhanden. Sie müssen mindestens eine Tabelle anlegen.");
+        return;
+    }
+
     // Array von Hintergrundfarben, die für die Zellen verwendet werden sollen.
     // "lightgreen" = Erstwunsch || "lightyellow" = Zweitwunsch || "lightsalmon" = Drittwunsch || "lightcoral" = Noch zuzuteilen, weil alle anderen Tabellen voll waren
+
     var backgroundColors = ["lightgreen", "lightyellow", "lightsalmon", "lightcoral"];
 
     // Datei-Upload Feld zum auswählen der Datei
@@ -77,15 +106,15 @@ function uploadCSV_fcfs() {
 
                     //Suche nach leeren Zellen
                     if (table) {
-                        var rowIndex = 2;
+                        var rowIndex = 2; // Die 2 Header-Zeilen sollen ignoriert werden
                         var row = table.getElementsByTagName("tr")[rowIndex];
                         var column = row.getElementsByTagName("td")[1];
                         var column2 = row.getElementsByTagName("td")[2];
                         while (row) {
-                            // Wenn eine leere Zelle gefunden wurde werden die Daten aus dem CSV-File eingefügt
-                            // Außerdem entsprechende "Title" gesetzt mit den Infos aus dem CSV-File um so einen
-                            // Tooltip mit allen Informationen der entsprechenden Zeile zu erzeugen
-                            // Ebenso wird eine Hintergrundfarbe für die Zellen entsprechend Erstwahl/Zweitwahl/Drittwahl gesetzt
+                            /*Wenn eine leere Zelle gefunden wurde, werden die Daten aus dem CSV-File eingefügt.
+                            Außerdem wird der entsprechende "Title" gesetzt mit den Infos aus dem CSV-File um so einen
+                            Tooltip mit allen Informationen der entsprechenden Zeile zu erzeugen
+                            Ebenso wird eine Hintergrundfarbe für die Zellen entsprechend Erstwahl/Zweitwahl/Drittwahl gesetzt*/
                             if (column.innerHTML === "") {
                                 column.innerHTML = rowData[0];
                                 column2.innerHTML = rowData[1];
@@ -93,7 +122,7 @@ function uploadCSV_fcfs() {
                                 column2.style.backgroundColor = backgroundColors[j];
                                 column.setAttribute("title", "Name: " + rowData[0] + ", Vorname: " + rowData[1] + ", Erstwunsch: " + rowData[2] + ", Zweitwunsch: " + rowData[3] + ", Drittwunsch: " + rowData[4]);
                                 column2.setAttribute("title", "Name: " + rowData[0] + ", Vorname: " + rowData[1] + ", Erstwunsch: " + rowData[2] + ", Zweitwunsch: " + rowData[3] + ", Drittwunsch: " + rowData[4]);
-                                tableFound = true;
+                                tableFound = true; //Tabelle und freien Platz gefunden
                                 break;
                             }
                             rowIndex++;
@@ -113,7 +142,7 @@ function uploadCSV_fcfs() {
                     // Soll eine neue Tabelle "Unsortiert" erstellt werden.
                     var unsortedTable = document.getElementById("Unsortiert");
                     if (!unsortedTable) {
-                        unsortedTable = createUnsortedTable();
+                        var unsortedTable = createUnsortedTable();
                     }
                     fillUnsortedTable(unsortedTable, rowData, backgroundColors);
                 }
@@ -123,8 +152,16 @@ function uploadCSV_fcfs() {
 }
 
 function uploadCSV_random() {
+
+    var check = document.getElementsByTagName("table");
+    if (check.length == 0) {
+        alert("Es sind keine Tabellen vorhanden. Sie müssen mindestens eine Tabelle anlegen.");
+        return;
+    }
+
     // Array von Hintergrundfarben, die für die Zellen verwendet werden sollen.
     // "lightgreen" = Erstwunsch || "lightyellow" = Zweitwunsch || "lightsalmon" = Drittwunsch || "lightcoral" = Noch zuzuteilen, weil alle anderen Tabellen voll waren
+
     var backgroundColors = ["lightgreen", "lightyellow", "lightsalmon", "lightcoral"];
 
     // Datei-Upload Feld zum auswählen der Datei
@@ -210,7 +247,7 @@ function uploadCSV_random() {
                     // Soll eine neue Tabelle "Unsortiert" erstellt werden.
                     var unsortedTable = document.getElementById("Unsortiert");
                     if (!unsortedTable) {
-                        unsortedTable = createUnsortedTable();
+                        var unsortedTable = createUnsortedTable();
                     }
                     fillUnsortedTable(unsortedTable, rowData, backgroundColors);
                 }
@@ -219,7 +256,7 @@ function uploadCSV_random() {
     });
 }
 
-//__________________________Table Functions_______________________________\\
+//____________________________________________________________________________________________\\
 
 function createTableHeader(color, name, size) {
     var tableName = name;
@@ -268,6 +305,7 @@ function createTableHeader(color, name, size) {
     //Event-Listener für's Ändern des Namens der Tabelle
     nameInput.addEventListener("change", function() {
         table.setAttribute("id", this.value);
+        console.log("Table-ID: ", this.value);
         changeRowId(this.value);
     });
 
@@ -293,6 +331,7 @@ function createTableHeader(color, name, size) {
 }
 
 function changeRowId(table) {
+    console.log("Table inside change row ID: ", table);
     var tableToChange = document.getElementById(table);
     var rows = tableToChange.getElementsByTagName("tr");
     var index = 0;
@@ -306,6 +345,7 @@ function changeRowId(table) {
 
 function createRows(table, size) {
     var tableSize = size;
+    var table = table;
     for (var i = 0; i < tableSize; i++) {
         var row = document.createElement("tr");
         row.setAttribute("id", table.id + " row-" + i);
@@ -332,7 +372,78 @@ function createRows(table, size) {
     registerTableEventListeners();
 }
 
+// Handler für Drag and Drop Events
+var draggedRow;
+
+function handleDragStart(e) {
+    draggedRow = e.target.closest("tr");
+    draggedRow.setAttribute('data-dragging', true);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', draggedRow);
+}
+
+function handleDragEnd(e) {
+    draggedRow = null;
+    var table = e.target.closest("table");
+    if (table) {
+        renumberRows(table);
+    }
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    return false;
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    var targetRow = e.target.closest("tr");
+    var targetTable = targetRow.parentElement;
+    var originalRow = document.querySelector("[data-dragging=true]");
+    var originalTable = originalRow.parentElement;
+    if (targetTable == originalTable) {
+        originalRow.removeAttribute('data-dragging');
+        return;
+    }
+    var newRow = originalRow.cloneNode(true);
+    originalTable.removeChild(originalRow);
+    targetTable.insertBefore(newRow, targetRow);
+    renumberRows(originalTable);
+    renumberRows(targetTable);
+    newRow.removeAttribute('data-dragging');
+}
+
+function renumberRows(table) {
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 2; i < rows.length; i++) {
+        var row = rows[i];
+        var cells = row.getElementsByTagName("td");
+        cells[0].innerHTML = i - 1 + ".";
+        for (var j = 1; j < cells.length; j++) {
+            var cell = cells[j];
+            if (cell) { // add null check
+                cell.setAttribute("data-row", i);
+                cell.setAttribute("data-column", j);
+            }
+        }
+    }
+}
+
+function registerTableEventListeners() {
+    var tables = document.getElementsByTagName("table");
+    for (var i = 0; i < tables.length; i++) {
+        var table = tables[i];
+        table.addEventListener("dragstart", handleDragStart);
+        table.addEventListener("dragover", handleDragOver);
+        table.addEventListener("drop", handleDrop);
+    }
+}
+
+
+
 function upscale(table, newSize, currentRows) {
+    var table = table;
     for (var i = currentRows; i < newSize; i++) {
         var row = document.createElement("tr");
         var column1 = document.createElement("td");
@@ -364,6 +475,7 @@ function upscale(table, newSize, currentRows) {
 }
 
 function downscale(table, newSize, currentRows) {
+    var table = table;
     var rowsToDelete = currentRows - newSize;
     for (var i = 0; i < rowsToDelete; i++) {
         var rowToDelete = table.rows[table.rows.length - 1];
@@ -450,80 +562,6 @@ function fillUnsortedTable(table, data, background) {
     unsortedTable.appendChild(row);
 }
 
-
-//_____________________________Drag&Drop-Functions________________________________
-
-// Handler für Drag and Drop Events
-var draggedRow;
-
-function handleDragStart(e) {
-    draggedRow = e.target.closest("tr");
-    draggedRow.setAttribute('data-dragging', true);
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', draggedRow);
-}
-
-function handleDragEnd(e) {
-    draggedRow = null;
-    var table = e.target.closest("table");
-    if (table) {
-        renumberRows(table);
-    }
-}
-
-function handleDragOver(e) {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
-    return false;
-}
-
-function handleDrop(e) {
-    e.preventDefault();
-    var targetRow = e.target.closest("tr");
-    var targetTable = targetRow.parentElement;
-    var originalRow = document.querySelector("[data-dragging=true]");
-    var originalTable = originalRow.parentElement;
-    var targetTableRows = targetTable.getElementsByTagName("tr");
-    if (targetTable == originalTable) {
-        originalRow.removeAttribute('data-dragging');
-        return;
-    }
-    var newRow = originalRow.cloneNode(true);
-    originalTable.removeChild(originalRow);
-    targetTable.insertBefore(newRow, targetRow);
-    renumberRows(originalTable);
-    renumberRows(targetTable, targetTableRows.length);
-    newRow.removeAttribute('data-dragging');
-}
-
-function renumberRows(table, size) {
-    var rows = table.getElementsByTagName("tr");
-    for (var i = 2; i < rows.length; i++) {
-        var row = rows[i];
-        var cells = row.getElementsByTagName("td");
-        cells[0].innerHTML = i - 1 + ".";
-        for (var j = 1; j < cells.length; j++) {
-            var cell = cells[j];
-            if (cell) { // add null check
-                cell.setAttribute("data-row", i);
-                cell.setAttribute("data-column", j);
-            }
-        }
-    }
-}
-
-function registerTableEventListeners() {
-    var tables = document.getElementsByTagName("table");
-    for (var i = 0; i < tables.length; i++) {
-        var table = tables[i];
-        table.addEventListener("dragstart", handleDragStart);
-        table.addEventListener("dragover", handleDragOver);
-        table.addEventListener("drop", handleDrop);
-    }
-}
-
-//____________________________Print-Functions_____________________________
-
 function printTableById() {
     var tableId = prompt("Welche Tabellen möchten Sie drucken?");
     if (!tableId) {
@@ -583,8 +621,6 @@ function printAllTables() {
     }
 }
 
-//_______________________________Local Storage Functions________________________________
-
 function saveToLocalStorage() {
     const tables = document.getElementsByTagName("table");
     const tableData = [];
@@ -606,18 +642,31 @@ function saveToLocalStorage() {
         }
 
         localStorage.setItem("tables_" + snapshotName, JSON.stringify(tableData));
+        console.log(localStorage);
     }
     displayLocalStorageItems();
 }
 
 function clearLocalStorage() {
+    const localStorageKeys = Object.keys(localStorage);
+    if (localStorageKeys == "") {
+        alert("Liste ist bereits leer");
+        return;
+    }
+    let sure = prompt("Sind Sie sich sicher, dass sie alle Einträge löschen möchten?");
+    if (sure == null) {
+        return;
+    }
     localStorage.clear();
     displayLocalStorageItems();
 }
 
 function restoreFromLocalStorage(snapshotName) {
-    // var snapshot = prompt("Welchen Snapshot wollen sie wiederherstellen?");
     var tables = document.getElementsByTagName("table");
+    let sure = prompt("Sind Sie sich sicher, dass sie diesen Snapshot wiederherstellen möchten? Alle aktuellen Tabelleneinträge gehen verloren, sofern Sie diese nicht abgespeichert haben.");
+    if (sure == null) {
+        return;
+    }
     while (tables.length > 0) {
         tables[0].parentNode.removeChild(tables[0]);
     }
@@ -684,14 +733,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-//_____________________Event Listener__________________________________\\
+//____________________________________________________________________________________________\\
 
 document.addEventListener("DOMContentLoaded", function() {
-    var deleteAllContent = document.getElementById("deleteAllContent");
-    var deleteSpecificContent = document.getElementById("deleteSpecificContent");
-    var deleteAllTables = document.getElementById("deleteAllTables");
-    var deleteSpecificTable = document.getElementById("deleteSpecificTable");
-    deleteAllContent.addEventListener("click", function() {
+    var btn = document.getElementById("removeBtn");
+    var btn2 = document.getElementById("removeBtn2");
+    var btn3 = document.getElementById("deleteTablesButton");
+    var btn4 = document.getElementById("deleteSpecific");
+    btn.addEventListener("click", function() {
+        let sure = prompt("Sind Sie sich sicher, dass sie den Inhalt aller Tabellen löschen möchten?");
+        if (sure == null || sure == "Nein") {
+            return;
+        }
         var tables = document.getElementsByTagName("table");
         for (var i = 0; i < tables.length; i++) {
             var table = tables[i];
@@ -719,18 +772,25 @@ document.addEventListener("DOMContentLoaded", function() {
             unsortedTableIndex = 1;
         }
     });
-    deleteSpecificContent.addEventListener("click", function() {
+    btn2.addEventListener("click", function() {
         var contentToDelete = prompt("Den Inhalt welcher Tabelle wollen sie entfernen?");
         var table = document.getElementById(contentToDelete);
+
+        if (!table) {
+            alert("Keine Tabelle mit diesem Namen vorhanden");
+            return;
+        }
+        let sure = prompt("Sind Sie sich sicher, dass sie alle Einträge in dieser Tabelle löschen möchten?");
+        if (sure == null || sure == "Nein") {
+            return;
+        }
+
         if ((table.id = "Unsortiert")) {
             var unsortedTable = document.getElementById("Unsortiert");
             table.parentNode.removeChild(unsortedTable);
             unsortedTableIndex = 1;
         }
-        if (!table) {
-            alert("Keine Tabelle mit diesem Namen vorhanden");
-            return;
-        }
+
         var rows = table.rows;
         for (var j = 2; j < rows.length; j++) {
             var row = rows[j];
@@ -741,15 +801,23 @@ document.addEventListener("DOMContentLoaded", function() {
             cells[2].style.backgroundColor = "white";
         }
     });
-    deleteAllTables.addEventListener("click", function() {
+    btn3.addEventListener("click", function() {
+        let sure = prompt("Sind Sie sich sicher, dass sie alle Tabellen löschen möchten?");
+        if (sure == null || sure == "Nein") {
+            return;
+        }
         var tables = document.getElementsByTagName("table");
         while (tables.length > 0) {
             tables[0].parentNode.removeChild(tables[0]);
         }
     });
-    deleteSpecificTable.addEventListener("click", function() {
+    btn4.addEventListener("click", function() {
         var tableToDelete = prompt("Welche Tabelle wollen sie löschen");
         var table = document.getElementById(tableToDelete);
+        let sure = prompt("Sind Sie sich sicher, dass sie diese Tabelle löschen möchten?");
+        if (sure == null || sure == "Nein") {
+            return;
+        }
         if (!tableToDelete) {
             alert("Tablle mit diesem Namen nicht vorhanden");
         }

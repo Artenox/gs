@@ -43,7 +43,7 @@ body {
 .button {
     border: solid;
     color: white;
-    padding: 5px;
+    padding: 7px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -55,6 +55,7 @@ body {
     width: 250px;
     border-color: lightslategray;
 }
+
 .buttonCreate{
     background-color: #4caf50;
 }
@@ -64,22 +65,8 @@ body {
 .buttonPrint{
     background-color: gray;
 }
-.buttonSave{
-    background-color: #2196f3;
-    font-size: 14px;
-    width: 150px;
-    padding: 5px;
-}
-.buttonRight{
-    position: relative;
-    left:257px;
-}
-
-.icon{
-        float: right;
-width: 16px;
-height: 16px;
-cursor: pointer;
+.buttonSnapshot{
+  background-color: #3399ff;
 }
 
 .dropdown {
@@ -108,7 +95,12 @@ cursor: pointer;
     background-color: #f44336;
     border-radius: 12px;
 }
-.dropdown-content a:hover {
+.dropdown-content a:hover{
+    cursor: pointer;
+    background-color: #2196f3;
+}
+
+.dropdown-content button:hover{
     cursor: pointer;
     background-color: #2196f3;
 }
@@ -127,10 +119,15 @@ cursor: pointer;
     color: darkblue;
     margin: 5px;
   }
-
+  
+  .icon{
+    float: right;
+width: 16px;
+height: 16px;
+cursor: pointer;
+}
   .listButton {
     position: absolute; /* Absolute Positionierung innerhalb des Elternelements */
     top: -10px; /* Positioniert den Button 10 Pixel über dem Listenelement */
     right: 5px; /* Positioniert den Button 5 Pixel von rechts */
   }
-  

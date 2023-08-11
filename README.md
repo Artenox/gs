@@ -20,7 +20,7 @@ __Docker__
 Für den nächsten Schritt benötigen Sie die Docker-Container Software.
 Sofern Sie diese Software nicht installiert haben, folgen Sie den folgenden Installationsanleitungen:
 
-__**Ubuntu und weitere Linux-Systeme:__
+__**Ubuntu und weitere Linux-Systeme (Siehe Auswahlmöglichkeiten auf der Linken Seite):__
 
 https://docs.docker.com/engine/install/ubuntu/
 

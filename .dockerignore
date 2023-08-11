@@ -1,0 +1,5 @@
+#ignore unnecessary files and folders
+docker-compose.yml
+Dockerfile
+start_app*
+.vscode*

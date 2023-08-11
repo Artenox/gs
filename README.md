@@ -20,7 +20,7 @@ __Docker__
 Für den nächsten Schritt benötigen Sie die Docker-Container Software.
 Sofern Sie diese Software nicht installiert haben, folgen Sie den folgenden Installationsanleitungen:
 
-__**Ubuntu und weitere Linux-Systeme:__
+__**Ubuntu und weitere Linux-Systeme (Siehe Auswahlmöglichkeiten auf der Linken Seite):__
 
 https://docs.docker.com/engine/install/ubuntu/
 
@@ -43,5 +43,6 @@ Navigieren Sie in das heruntergeladene und entpackte Repository und führen sie 
 __**Linux-Systeme | Mac OS__
 
 Öffnen Sie ein Konsolenfenster und navigieren Sie in das heruntergeladene und entpackte Repository.
-Starten sie die "start_app.sh" Skriptdatei mittels "./start_app.sh"
+Machen sie die Datei mittels "chmod +x start_app.sh" ausführbar.
+Starten sie die "start_app.sh" Skriptdatei mittels "./start_app.sh".
 Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Adresszeile ein.

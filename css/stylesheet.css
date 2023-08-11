@@ -1,7 +1,7 @@
 html {
     background-color: lightblue;
 }
-p {
+.p_speicher {
     font-family: Arial;
     margin-left: 100px;
     text-decoration: underline;
@@ -125,3 +125,23 @@ ul li {
     right: 5px;
    /* Positioniert den Button 5 Pixel von rechts */
 }
+
+fieldset {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    border: 2px solid orange;
+    width: 1000px;
+  }
+  
+  fieldset p {
+    margin: 1em;
+  }
+ 
+  legend {
+    color: white;
+    background-color: orange;
+    float: right;
+    padding: 0.2em 1.5em;
+    border-bottom-left-radius: 1em;
+  }

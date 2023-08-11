@@ -38,10 +38,10 @@ Um das heruntergeladene Repository auszuführen:
 
 __**Windows__: 
 Navigieren Sie in das heruntergeladene und entpackte Repository und führen sie die "start_app.bat" Datei aus.
-Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Addresszeile ein.
+Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Adresszeile ein.
 
 __**Linux-Systeme | Mac OS__
 
 Öffnen Sie ein Konsolenfenster und navigieren Sie in das heruntergeladene und entpackte Repository.
 Starten sie die "start_app.sh" Skriptdatei mittels "./start_app.sh"
-Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Addresszeile ein.
+Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Adresszeile ein.

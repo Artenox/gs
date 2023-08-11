@@ -43,5 +43,6 @@ Navigieren Sie in das heruntergeladene und entpackte Repository und führen sie 
 __**Linux-Systeme | Mac OS__
 
 Öffnen Sie ein Konsolenfenster und navigieren Sie in das heruntergeladene und entpackte Repository.
+Machen sie die Datei mittels "chmod +x start_app.sh" ausführbar.
 Starten sie die "start_app.sh" Skriptdatei mittels "./start_app.sh"
 Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Adresszeile ein.

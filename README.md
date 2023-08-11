@@ -36,7 +36,12 @@ __Ausführung__
 
 Um das heruntergeladene Repository auszuführen:
 
-1) Öffnen Sie ein entsprechendes Konsolenfenster, navigieren Sie in das heruntergeladene und entpackte Repository und führen Sie den Befehl "docker compose up" aus.
-Dieser Befehl erstell den Container und startet diesen anschließend für Sie.
+__**Windows__: 
+Navigieren Sie in das heruntergeladene und entpackte Repository und führen sie die "start_app.bat" Datei aus.
+Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Addresszeile ein.
 
-2) Öffnen Sie ein Browserfenster und geben "localhost:80" in die Addresszeile ein.
+__**Linux-Systeme | Mac OS__
+
+Öffnen Sie ein Konsolenfenster und navigieren Sie in das heruntergeladene und entpackte Repository.
+Starten sie die "start_app.sh" Skriptdatei mittels "./start_app.sh"
+Öffnen Sie ein Browserfenster und geben "localhost:8080" in die Addresszeile ein.

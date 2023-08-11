@@ -12,7 +12,7 @@ __Repository-Download__
 Haben Sie die Github-Software auf Ihrem PC installiert, so können Sie dieses Repository über
 ein Konsolenfenster mit folgendem Befehl herunterladen: "git clone https://github.com/Artenox/gs.git".
 
-Alternativ können Sie es herunterladen, indem Sie zunächst folgenden Link öffnern: "https://github.com/Artenox/gs" und anschließend rechts oben auf den grünen "< > Code"-Button, dann auf "Download ZIP" klicken
+Alternativ können Sie es herunterladen, indem Sie zunächst folgenden Link öffnen: "https://github.com/Artenox/gs" und anschließend rechts oben auf den grünen "< > Code"-Button, dann auf "Download ZIP" klicken
 und anschließend die heruntergeladene Datei "gs-main.zip" entpacken.
 
 __Docker__

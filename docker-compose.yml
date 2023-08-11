@@ -1,6 +1,7 @@
-version: '3.8'
+version: '3.9'
 services:
-  web:
-    image: artenox/gs
+  gs-service:
+    container_name: gruppensortierung
+    image: gruppensortierung:latest
     ports:
-      - "80:80"
+      - "8080:80"

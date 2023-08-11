@@ -5,8 +5,7 @@ FROM nginx:latest
 WORKDIR /usr/share/nginx/html
 
 # Kopieren Sie den Inhalt Ihrer Website in das Arbeitsverzeichnis
-COPY !(*Dockerfile|*.yml|*.git*|.vscode*) /usr/share/nginx/html/
-
+COPY !(*Dockerfile|*.yml|*.git*|.vscode*) .
 
 # Port freigeben
 EXPOSE 80

@@ -37,6 +37,8 @@ body {
     width: 50px;
     font-weight: bold;
 }
+
+/*Button-Style*/
 .button {
     border: solid;
     color: white;
@@ -64,6 +66,8 @@ body {
 .buttonSnapshot{
     background-color: #3399ff;
 }
+
+/*Dropdown-Menüs*/
 .dropdown {
     position: relative;
     display: inline-block;
@@ -94,9 +98,13 @@ body {
     cursor: pointer;
     filter:brightness(90%);
 }
+
+/*Inhalt beim Drucken verstecken*/
 .print-hidden {
-    display: none !important;
+    display: none !important; 
 }
+
+/*Snapshot-Liste*/
 ul {
     background: #3399ff;
     padding: 10px;
@@ -119,13 +127,11 @@ ul li {
 }
 .listButton {
     position: absolute;
-   /* Absolute Positionierung innerhalb des Elternelements */
     top: -10px;
-   /* Positioniert den Button 10 Pixel über dem Listenelement */
     right: 5px;
-   /* Positioniert den Button 5 Pixel von rechts */
 }
 
+/*Legende*/
 fieldset {
     background-color: white;
     margin: 0;

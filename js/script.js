@@ -128,6 +128,7 @@ function createTableHeader(color, name, size) {
     return table;
 }
 
+/*Ändern der Row-ID bei Änderung des Tabellennamens*/
 function changeRowId(table) {
     var tableToChange = document.getElementById(table);
     var rows = tableToChange.getElementsByTagName("tr");
@@ -169,6 +170,7 @@ function createRows(table, size) {
     registerTableEventListeners();
 }
 
+/* Tabellengröße ändern*/
 function upscale(table, newSize, currentRows) {
     var table = table;
     for (var i = currentRows; i < newSize; i++) {
@@ -554,6 +556,7 @@ function handleDrop(e) {
     newRow.removeAttribute('data-dragging');
 }
 
+/*Neu-Nummerierung der Zeilen*/
 function renumberRows(table) {
     var rows = table.getElementsByTagName("tr");
     for (var i = 2; i < rows.length; i++) {
@@ -836,7 +839,7 @@ function deleteSpecificTable(){
         return;
     }
     if (!tableToDelete) {
-        alert("Tablle mit diesem Namen nicht vorhanden");
+        alert("Tabelle mit diesem Namen nicht vorhanden");
     }
     table.parentNode.removeChild(table);
 }

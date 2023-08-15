@@ -6,9 +6,10 @@ Installationsanleitung:
 
 Repository-Download
 
-Haben Sie die Github-Software auf Ihrem PC installiert, so können Sie dieses Repository über ein Konsolenfenster mit folgendem Befehl herunterladen: "git clone https://github.com/Artenox/gs.git".
+Haben Sie die Github-Software auf Ihrem PC installiert, so können Sie dieses Repository über ein Konsolenfenster mit folgendem Befehl herunterladen: "https://git.ide3.de/semer/ba-gs.git".
+Sie finden dann im aktuellen Verzeichnis einen Ordner mit der Bezeichnung ``ba-gs''.
 
-Alternativ können Sie es herunterladen, indem Sie rechts oben auf den grünen "< > Code"-Button, dann auf "Download ZIP" klicken und anschließend die heruntergeladene Datei "gs-main.zip" entpacken.
+Alternativ können Sie es herunterladen, indem Sie rechts oben auf den Download-Button klicken, dann auf Ihr bevorzugtes Format, beispielsweise ".zip" und anschließend die heruntergeladene Datei "ba-gs-main.zip/tar/..." entpacken.
 
 Docker
 

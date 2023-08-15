@@ -650,7 +650,7 @@ function restoreFromLocalStorage(snapshotName) {
 function displayLocalStorageItems() {
     const localStorageKeys = Object.keys(localStorage);
 
-    // Sort Keys alphabetisch sortieren
+    // Local Storage Keys alphabetisch sortieren
     localStorageKeys.sort();
 
     const list = document.createElement("ul");
@@ -660,7 +660,7 @@ function displayLocalStorageItems() {
         const snapshotName = key.substring(7);
         const item = document.createElement("li");
         const icon = document.createElement("span");
-        icon.style.backgroundImage = "url('download.svg')";
+        icon.style.backgroundImage = "url('rss/download.svg')";
         icon.classList.add('icon');
         // Einen Klick-Listener fürs Icon hinzufügen
         icon.addEventListener("click", function() {
